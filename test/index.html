@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="../dist/queue.js"></script>
+  </head>
+  <body>
+    <script>
+        function doSomething(qArr, callback, failCallback){
+            setTimeout(function(){ 
+                console.info('[q]: doing something with', qArr);
+                
+                // random fail / success
+                if (Math.random() < .5) {
+                    callback();
+                } else {
+                    failCallback();
+                }
+            }.bind(this), 1000);
+        }
+        
+        var q = new _q(doSomething);
+        var q2 = new _q(doSomething);
+    </script>
+  </body>
+</html>

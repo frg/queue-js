@@ -1,0 +1,23 @@
+{
+  "name": "q",
+  "version": "0.1.0",
+  "description": "Simple js synchronous queue",
+  "main": "src/queue.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build-debug": "browserify src/queue.js -d --s _q > dist/queue.js",
+    "build-min": "browserify src/queue.js --s _q | uglifyjs -c > dist/queue.min.js",
+    "build": "npm run build-debug && npm run build-min",
+    "watch": "watchify src/queue.js -d --s _q -o dist/queue.js -v",
+    "test": "tets"
+  },
+  "author": "Jean Farrugia",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "uglify-js": "^2.6.2",
+    "watchify": "^3.7.0"
+  }
+}
